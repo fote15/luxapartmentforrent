@@ -1,22 +1,5 @@
 <?php
 header("Content-Type:application/json");
-if (isset($_GET['order_id']) && $_GET['order_id']!="") {
-$con = mysqli_connect("aa","root","","jai");
-$order_id = $_GET['order_id'];
-$result = mysqli_query($con, "SELECT * FROM `haty` WHERE id=$order_id");
-if(mysqli_num_rows($result)>0){
-$row = mysqli_fetch_array($result);
-$amount = $row['adress'];
-$response_code = $row['response_code'];
-$response_desc = $row['response_desc'];
-response($order_id, $amount, $response_code,$response_desc);
-}else{
-
-}
-}else{
-
-}
-
 function response($order_id,$amount,$response_code,$response_desc){
 $response['order_id'] = $order_id;
 $response['adress'] = $amount;
@@ -27,7 +10,7 @@ $json_response = json_encode($response);
 echo $json_response;
 }
 if (isset($_GET['getall']) ) {
-	$con = mysqli_connect("aa","root","","jai");
+	$con = mysqli_connect("aa2","root","","jai");
 
 
 $order_id = $_GET['getall'];

@@ -1,0 +1,48 @@
+"use strict";
+
+function reactshshs(e, pic1, pic2, pic3,kvadratura,cena,komnat) {
+
+
+
+
+
+  var idapp = document.getElementById('app');
+
+  var renderAll = function renderAll() {
+    var template = 
+    <div>
+      	<div className="owl-carousel owl-theme">
+    <div className="item"><img src={pic1}/></div>
+    <div className="item"><img src={pic2}/></div>
+    <div className="item"><img src={pic3}/></div>
+</div>
+     	  
+          
+          <h4>{e}</h4>
+          <h5>Цена: {cena}</h5>
+          <p>Квадратура: {kvadratura}</p>
+          
+          <p>Кол-во комнат: {komnat}</p>
+
+      </div>
+    ReactDOM.render(template, idapp);
+  };
+
+  renderAll();
+     $('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:2
+        },
+        1000:{
+            items:2
+        }
+    }
+})
+}
